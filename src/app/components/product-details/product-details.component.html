@@ -1,0 +1,102 @@
+<div *ngIf="currentProduct" class="edit-form" style="text-align: center; margin-top: 2%; padding-bottom:5%;">
+  <h1>Edit: {{currentProduct.name}}</h1>
+
+
+  <form class="tp-container">
+    
+    <div style="margin-bottom: 5%;">
+    <label for="name">Name</label>
+    <div>
+      <input 
+        type="text"
+        id="name"
+        [(ngModel)]="currentProduct.name"
+        name="name"
+      />
+    </div>
+    </div>
+  
+
+
+    <div style="margin-bottom: 5%; ">
+      <label for="type">Type</label>
+      <div>
+      <input 
+        type="text"
+        class="form-control"
+        id="type"
+        [(ngModel)]="currentProduct.type"
+        name="type"/>
+      </div>
+    </div>
+
+
+    <div style="margin-bottom: 5%; ">
+      <label for="price">Price</label>
+    
+      <div>
+      <input 
+        type="number"
+        class="form-control"
+        id="price"
+        [(ngModel)]="currentProduct.price"
+        name="price"
+      />
+      </div>
+    </div>
+    
+    <div style="margin-bottom: 5%; ">
+     
+      <label for="warranty_years">Warranty years</label>
+      <div>
+      <input 
+        type="number"
+        class="form-control"
+        id="warranty_years"
+        [(ngModel)]="currentProduct.warranty_years"
+        name="warranty_years"
+      />
+      </div>
+    </div>
+
+    <div style="margin-bottom: 5%; ">
+    <label><strong>Available:</strong></label>
+    <div>
+      <select [(ngModel)]="currentProduct.available" name="available">
+        <option id="true" value="true">
+        Yes
+        </option>
+        <option id=false value="false">
+        No
+        </option>
+      </select>
+    </div>
+   
+  </div>
+
+  </form>
+
+
+
+
+<div style="margin-right: 10% ; margin-top: 5%; margin-bottom: 5% ;display: inline-block;">
+  <button mat-flat-button color="primary" type="submit" (click)="updateProduct()">
+    Update
+  </button>
+</div>
+
+  
+<div style="display: inline-block">
+  <button  mat-flat-button color="warn" (click)="deleteProduct()">
+    Delete
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentProduct" style="text-align: center;">
+  <br />
+  <p>Cannot access this Product...</p>
+</div>

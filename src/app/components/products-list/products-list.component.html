@@ -1,0 +1,51 @@
+<div class="list row" style="text-align: center; padding-top: 2%;">
+    <h1>Products List</h1>
+  
+    <div *ngIf="products" style="padding-top: 2%;">
+
+        <mat-list>
+           
+         
+    <mat-list-item *ngFor="let product of products" style="width: 100%;">
+        
+       
+        
+        <div style="width: 30%;">
+        <mat-icon *ngIf="product.available" mat-list-icon>check</mat-icon>
+        <mat-icon *ngIf="!product.available" mat-list-icon>clear</mat-icon>
+        </div>
+
+    <div style="width: 30%;">
+        <h4>{{ product.name }}</h4>
+    
+        <div mat-line>
+          <label><strong>Type:</strong></label>
+          {{ product.type}}
+        </div>
+        <div mat-line>
+          <label><strong>Price:</strong></label> {{ product.price }}
+        </div>
+        <div mat-line>
+          <label><strong>Rating:</strong></label>
+          {{ product.rating }} / 5
+        </div>
+        <div mat-line>
+          <label><strong>Warranty Years:</strong></label>
+          {{ product.warranty_years }}
+        </div>
+        <div mat-line>
+          <label><strong>Available:</strong></label>
+          {{ product.available ? "" : "Not " }} Available
+        </div>
+    </div>
+    <div style="width: 30%;">
+        <a mat-button [routerLink]="['/products', product._id]"> Edit </a>
+    </div>
+
+
+        <mat-divider></mat-divider>
+    </mat-list-item>
+  
+    </mat-list>
+    </div>
+  </div>

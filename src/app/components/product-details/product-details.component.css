@@ -1,0 +1,8 @@
+.tp-container {
+    display: flex;
+    flex-direction: column;
+ }
+ .tp-container > * {
+   width: 30%;
+   margin: 0 auto;
+ }
